@@ -10,13 +10,20 @@ build-essential
 gfortran
 cmake
 pkg-config
+
+# Dépendances système générales
 libblas-dev
 liblapack-dev
-libcairo2-dev
+libgsl-dev
+
+# Compilation R packages
 libxt-dev
 libssl-dev
 libcurl4-openssl-dev
 libxml2-dev
+
+# Rendu graphique R (ggplot2, png, svg)
+libcairo2-dev
 libfontconfig1-dev
 libharfbuzz-dev
 libfribidi-dev
@@ -26,3 +33,6 @@ libtiff5-dev
 libjpeg-dev
 libgit2-dev
 libudunits2-dev
+
+# Pour pandoc (conversion notebook -> html/pdf)
+pandoc
