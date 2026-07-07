@@ -41,6 +41,7 @@ dependencies:
   # Python environment
   - python>=3.10
   - pip
+  - ipykernel
   - ipywidgets>=8,<9
   - numpy
   - pandas
@@ -60,7 +61,6 @@ dependencies:
   - multiqc
   - qualimap
   - bedtools
-  - bc
   - htseq
   - star
   - subread
