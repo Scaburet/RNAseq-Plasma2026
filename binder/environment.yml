@@ -1,31 +1,58 @@
 name: meg_m2_rnaseq_bash
-# novel environment created in 2024 (from template meg_m2_rnaseq_bash) for the novel RNAseq pipeline on mouse data (adapted from the CEA RNAseq course)
+# novel environment created in 2026 (from template meg_m2_rnaseq_bash) for the novel RNAseq pipeline on mouse data (adapted from the CEA RNAseq course)
+# updated in june 2026 for Ubuntu 24.04 
 
 # channels priority
-# see https://bioconda.github.io/
-# conda-forge has highest priority
 channels:
-  - defaults
-  - bioconda
+# defaults changé en nodefaults pour construire l'env sur Mydocker de Saclay, janvier 2025
   - conda-forge
+  - bioconda
+  - nodefaults
+  
 dependencies:
   # Jupyter dependencies
-  - jupyterhub>=1.5,<2
-  - jupyterlab>=3.2,<4
-  - jupyter-resource-usage
-  - jupyterlab-topbar
-  - jupyterlab-topbar-text
-  - jupyterlab-system-monitor
-  - nodejs
-  # Jupyter archive
+  - jupyterhub>=4.1.6,<5
+  - jupyterlab>=4.6,<5
+  - notebook>=7.4,<8
+  - jupyter-resource-usage>=1,<2
+  - jupyterlab-topbar-text >=1.1.0,<2
+  - nodejs>=20
+  - nbresuse
+  - libgomp
+
+  #- jupyterlab-topbar
+  #- jupyterlab-system-monitor   # cause une erreur dans la création env sur uracile
+
   # https://github.com/jupyterlab-contrib/jupyter-archive
   - jupyter-archive
+  # https://github.com/lckr/jupyterlab-variableInspector
+  - jupyterlab-variableinspector
+  # https://github.com/jupyterlab/jupyterlab-git
+  - jupyterlab-git
+
+  # Build tools required for Ubuntu 24.04
+  - gxx_linux-64
+  - gcc_linux-64
+  - gfortran_linux-64
+
   # Bash environment
-  - python>=3.8
+  - bash_kernel
+
+  # Python environment
+  - python>=3.10
   - pip
+  - ipywidgets>=8,<9
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - biopython
   - pip:
-    - bash_kernel
-  # For the M2 course:
+    - watermark
+
+    
+  # For the M2 RNAseq course:
   - fastqc
   - fastp
   - fastq-screen
@@ -33,4 +60,8 @@ dependencies:
   - multiqc
   - qualimap
   - bedtools
+  - bc
   - htseq
+  - star
+  - subread
+  - salmon
